@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1 class="titulo">Quadro Kanban</h1>
+
+    <div class="quadro">
+
+        <div class="coluna">
+            <h2>A Fazer</h2>
+            <button id="btnAdicionar">+ Adicionar</button>
+            <div class="cards" id="aFazer"></div>
+        </div>
+
+        <div class="coluna">
+            <h2>Fazendo</h2>
+            <div class="cards" id="fazendo"></div>
+        </div>
+
+        <div class="coluna">
+            <h2>Concluído</h2>
+            <div class="cards" id="concluido"></div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
