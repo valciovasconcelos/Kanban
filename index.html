@@ -7,25 +7,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-
     <h1 class="titulo">Quadro Kanban</h1>
+
+    <div class="controles">
+        <button id="btnAdicionar">+ Nova Tarefa</button>
+    </div>
 
     <div class="quadro">
 
-        <div class="coluna">
-            <h2>A Fazer</h2>
-            <button id="btnAdicionar">+ Adicionar</button>
+        <div class="coluna" id="col-aFazer">
+            <h2>A Fazer <span id="count-aFazer"></span></h2>
             <div class="cards" id="aFazer"></div>
         </div>
 
-        <div class="coluna">
-            <h2>Fazendo</h2>
+        <div class="coluna" id="col-fazendo">
+            <h2>Fazendo <span id="count-fazendo"></span></h2>
             <div class="cards" id="fazendo"></div>
         </div>
 
-        <div class="coluna">
-            <h2>Concluído</h2>
+        <div class="coluna" id="col-concluido">
+            <h2>Concluído <span id="count-concluido"></span></h2>
             <div class="cards" id="concluido"></div>
         </div>
 

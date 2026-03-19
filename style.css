@@ -1,56 +1,169 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #2f834e;
+* {
     margin: 0;
-    padding: 20px;
+    padding: 0;
     box-sizing: border-box;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #ffffff;
+    min-height: 100vh;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .titulo {
     text-align: center;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    background: linear-gradient(to right, #00f2fe, #4facfe);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(79, 172, 254, 0.2);
 }
 
 .quadro {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 20px;
-    gap: 20px;
+    gap: 25px;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .coluna {
-    background-color: #1130a9;
-    min-height: 300px;
-    padding: 10px;
-    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
+    min-height: 500px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+.coluna h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.coluna#col-aFazer h2 { border-bottom-color: #ff6b6b; }
+.coluna#col-fazendo h2 { border-bottom-color: #feca57; }
+.coluna#col-concluido h2 { border-bottom-color: #1dd1a1; }
+
+.controles {
+    width: 100%;
+    max-width: 1200px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+button#btnAdicionar {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border: 1px dashed rgba(255, 255, 255, 0.4);
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+button#btnAdicionar:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: #fff;
 }
 
 .cards {
-    min-height: 200px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    margin-top: 10px;
+    gap: 15px;
+    min-height: 150px; /* Área para soltar quando vazia */
 }
 
 .card {
-    background-color: #7bad7b;
-    padding: 10px;
-    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    padding-right: 30px;
+    border-radius: 8px;
     cursor: grab;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border: 1px solid #120a59;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    font-size: 0.95rem;
+    word-break: break-word;
+    position: relative;
+    user-select: none;
+}
+
+.texto-tarefa {
+    display: block;
+    width: 100%;
+}
+
+.btnExcluir {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.btnExcluir:hover {
+    color: #ff6b6b;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.card:active {
+    cursor: grabbing;
 }
 
 .arrastando {
-    opacity: 0.5;
+    opacity: 0.4;
+    transform: scale(0.95);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px dashed rgba(255, 255, 255, 0.5);
+}
+
+.cards.drag-over {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 8px;
 }
 
 /* Responsividade usando media query */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
     .quadro {
         grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .coluna {
+        min-height: 300px;
     }
 }
